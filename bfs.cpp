@@ -4,7 +4,7 @@
 using namespace std;
 #define ll long long
 int const N = 1e5 + 10;
-vector<int> graph[N];
+vector<int> graphAdjacencyMatrix[N];
 int visitedNode[N], level[N];
 
 void bfs(int source)
@@ -18,7 +18,7 @@ void bfs(int source)
         int currentParentNode = qt.front();
         qt.pop();
         cout << currentParentNode << " ";
-        for (auto &child : graph[currentParentNode])
+        for (auto &child : graphAdjacencyMatrix[currentParentNode])
         {
             if (!visitedNode[child])
             {
@@ -38,8 +38,8 @@ void Mehedi()
     {
         int node, edge;
         cin >> node >> edge;
-        graph[node].push_back(edge);
-        graph[edge].push_back(node);
+        graphAdjacencyMatrix[node].push_back(edge);
+        graphAdjacencyMatrix[edge].push_back(node);
     }
     bfs(1);
 }

@@ -1,39 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 int const N = 1e3;
-int graph[N][N];
-vector<int> graphList[N];
+int graphAdjacencyMatrix[N][N];
+vector<int> graphAdjacencyList[N];
 int main()
 {
     int n, m;
     cin >> n >> m;
-    for (int i = 1; i <= m; i++)
+    for (int i = 0; i < m; i++)
     {
         int node, edge;
         cin >> node >> edge;
 
         // Input for Adjacency Matrix representation.
-        graph[node][edge] = 1;
-        graph[edge][node] = 1;
+        graphAdjacencyMatrix[node][edge] = 1;
+        graphAdjacencyMatrix[edge][node] = 1;
 
         // Input for Adjacency List representation.
-        graphList[node].push_back(edge);
-        graphList[edge].push_back(node);
+        graphAdjacencyList[node].push_back(edge);
+        graphAdjacencyList[edge].push_back(node);
     }
 
     cout << "Adjacency Matrix Representation : " << '\n';
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= m; j++)
-            cout << graph[i][j] << " ";
+        for (int j = 0; j < m; j++)
+            cout << graphAdjacencyMatrix[i][j] << " ";
         cout << '\n';
     }
 
     cout << "Adjacency List Representation : " << '\n';
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < graphList[i].size(); j++)
-            cout << graphList[i][j] << " ";
+        for (int j = 0; j < graphAdjacencyList[i].size(); j++)
+            cout << graphAdjacencyList[i][j] << " ";
         cout << '\n';
     }
     cout << '\n';
