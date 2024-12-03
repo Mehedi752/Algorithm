@@ -5,7 +5,7 @@ using namespace std;
 #define ll long long
 int const N = 1e5 + 10;
 vector<int> graphAdjacencyMatrix[N];
-int visitedNode[N], level[N];
+int visitedNode[N], levegl[N];
 
 void bfs(int source)
 {
@@ -17,9 +17,10 @@ void bfs(int source)
     {
         int currentParentNode = qt.front();
         qt.pop();
-        cout << currentParentNode << " ";
+        cout << currentParentNode << "\n";
         for (auto &child : graphAdjacencyMatrix[currentParentNode])
         {
+            cout<<child<<'\n';
             if (!visitedNode[child])
             {
                 qt.push(child);
